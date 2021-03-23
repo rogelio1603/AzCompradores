@@ -1,12 +1,23 @@
+import React from "react";
+import Toggle from "react-toggle";
 import { HeaderStyles, HeaderVariants } from "../shared/Header.styles";
 
 function Header() {
+  const [mode, setMode] = React.useState(false);
   return (
     <HeaderStyles variants={HeaderVariants} initial="hidden" animate="visible">
       <img url="#" alt="Logo AZ" />
       <div>
         <div className="title-container">
           <h1>AZ Compradores</h1>
+          <Toggle
+            defaultChecked={mode}
+            icons={{
+              checked: <div>nani</div>,
+              unchecked: null,
+            }}
+            onChange={() => setMode(true)}
+          />
         </div>
         <div className="list">
           <ul>
