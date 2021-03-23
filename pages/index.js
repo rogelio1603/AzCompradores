@@ -1,9 +1,34 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import {request} from '../components/datocms';
 
-export default function Home() {
+const HOMEPAGE_QUERY = `query {
+  allProducts {
+    image {
+      url
+    }
+    title
+    category
+    content
+    mxLink
+    usLink
+  }
+}
+`;
+export async function getStaticProps() {
+  const data = await request({
+    query: HOMEPAGE_QUERY,
+    variables: { limit: 10 }
+  });
+  return {
+    props: { data }
+  };
+}
+
+export default function Home({data}) {
   return (
     <div className={styles.container}>
+      <div>{JSON.stringify(data, null, 2)}</div>;
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
