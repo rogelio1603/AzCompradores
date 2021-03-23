@@ -18,16 +18,16 @@ function Header() {
         <div className="list ">
           <ul className="social-container">
             <li>
-              <button>TikTok</button>
+              <button className="button-container">TikTok</button>
             </li>
             <li>
-              <button>Youtube</button>
+              <button className="button-container">Youtube</button>
             </li>
             <li>
-              <button>Instagram</button>
+              <button className="button-container">Instagram</button>
             </li>
             <li>
-              <button>Facebook</button>
+              <button className="button-container">Facebook</button>
             </li>
           </ul>
         </div>

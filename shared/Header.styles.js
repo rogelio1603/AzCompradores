@@ -8,6 +8,8 @@ export const HeaderStyles = styled(motion.header)((props) => ({
   color: props.theme.font.color,
   alignItems: "center",
   justifyContent: "center",
+  fontSize: "3vw",
+
   "&:after": {
     position: "absolute",
     bottom: 0,
@@ -16,24 +18,35 @@ export const HeaderStyles = styled(motion.header)((props) => ({
     border: "1px solid silver",
     width: "100%",
   },
+  "& .button-container": {
+    fontSize: "3vw",
+    margin: 0,
+    background: "none",
+    border: "1px solid grey",
+    borderRadius: 5,
+  },
   "& .title-container": {
     display: "flex",
     alignItems: "center",
   },
   "& .list ul": {
+    padding: 0,
     listStyle: "none",
-    "& button": {
-      marginLeft: "1em",
-      background: "none",
-      border: "1px solid grey",
-      borderRadius: 5,
-    },
   },
   "& .social-container": {
     display: "flex",
+    flexWrap: "wrap",
   },
-  [props.theme.media.xxl]: {
+  [props.theme.media.md]: {
     gridGap: "1em",
+    fontSize: 16,
+    "& .social-container": {
+      display: "flex",
+    },
+    "& .button-container": {
+      fontSize: 16,
+      marginLeft: "1em",
+    },
   },
 }));
 
