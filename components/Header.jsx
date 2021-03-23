@@ -6,16 +6,29 @@ function Header() {
       <img url="#" alt="Logo AZ" />
       <div>
         <div className="title-container">
-          <h1>az nani</h1>
-          <button>Message</button>
+          <h1>AZ Compradores</h1>
         </div>
-        <div>
-          <p>Them mamu</p>
-          <p>Entrepreneur</p>
+        <div className="list">
           <ul>
-            <li>For nanai</li>
-            <li>Maning nani</li>
-            <li>Click on link</li>
+            <li>🇲🇽 Página mexicana.</li>
+            <li>🔥 Las mejores ofertas de Amazón.</li>
+            <li>♻ 100% segura y siempre actualizada.</li>
+          </ul>
+        </div>
+        <div className="list ">
+          <ul className="social-container">
+            <li>
+              <button>TikTok</button>
+            </li>
+            <li>
+              <button>Youtube</button>
+            </li>
+            <li>
+              <button>Instagram</button>
+            </li>
+            <li>
+              <button>Facebook</button>
+            </li>
           </ul>
         </div>
       </div>
