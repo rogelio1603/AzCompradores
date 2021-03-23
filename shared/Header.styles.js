@@ -8,7 +8,7 @@ export const HeaderStyles = styled(motion.header)((props) => ({
   color: props.theme.font.color,
   alignItems: "center",
   justifyContent: "center",
-  fontSize: "3vw",
+  fontSize: 12,
 
   "&:after": {
     position: "absolute",
@@ -24,6 +24,7 @@ export const HeaderStyles = styled(motion.header)((props) => ({
     background: "none",
     border: "1px solid grey",
     borderRadius: 5,
+    cursor: "pointer",
   },
   "& .title-container": {
     display: "flex",
