@@ -1,6 +1,11 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import {request} from '../components/datocms';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import { request } from "../components/datocms";
+import React from "react";
+import { IndexStyles } from "../shared/Index.styles";
+// * Components
+import { Card } from "../components/Card.jsx";
+import { Modal } from "../components/Modal";
 
 const HOMEPAGE_QUERY = `query {
   allProducts {
@@ -12,79 +17,144 @@ const HOMEPAGE_QUERY = `query {
     content
     mxLink
     usLink
+    mxImage{
+      url
+    }
+    usImage{
+      url
+    }
   }
 }
 `;
 export async function getStaticProps() {
   const data = await request({
     query: HOMEPAGE_QUERY,
-    variables: { limit: 10 }
+    variables: { limit: 10 },
   });
   return {
-    props: { data }
+    props: { data },
   };
 }
 
-export default function Home({data}) {
+export default function Home({ data }) {
+  const [showModal, setShowModal] = React.useState(false);
+  const [infoModal, setInfoModal] = React.useState({});
+  const [productsSelected, setProductsSelected] = React.useState(() => {
+    return data.allProducts;
+  });
+
+  const openModal = (product) => {
+    setInfoModal(product);
+    setShowModal((prev) => !prev);
+  };
+
+  const filtradoSports = data.allProducts.filter((producto) => {
+    return producto.category === "Sports";
+  });
+
+  const filtradoPopular = data.allProducts.filter((producto) => {
+    return producto.category === "Populares";
+  });
+
+  const filtradoHogar = data.allProducts.filter((producto) => {
+    return producto.category === "Hogar";
+  });
+
+  const filtradoVida = data.allProducts.filter((producto) => {
+    return producto.category === "Vida";
+  });
+
+  const filtradoSalir = data.allProducts.filter((producto) => {
+    return producto.category === "Salir";
+  });
+
+  const filtradoIntelecto = data.allProducts.filter((producto) => {
+    return producto.category === "Intelecto";
+  });
+
   return (
-    <div className={styles.container}>
-      <div>{JSON.stringify(data, null, 2)}</div>;
+    <IndexStyles>
       <Head>
-        <title>Create Next App</title>
+        <title>AzCompradores</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
+      <div className="category">
+        <ul className="category-container">
+          <li
+            onClick={() => {
+              setProductsSelected(data.allProducts);
+            }}
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
+            💎 Inicio
+          </li>
+          <li
+            onClick={() => {
+              setProductsSelected(filtradoPopular);
+            }}
           >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+            🔥 Popular
+          </li>
+          <li
+            onClick={() => {
+              setProductsSelected(filtradoHogar);
+            }}
+          >
+            🏡 Hogar
+          </li>
+          <li
+            onClick={() => {
+              setProductsSelected(filtradoVida);
+            }}
+          >
+            🤟🏻 Vida
+          </li>
+          <li
+            onClick={() => {
+              setProductsSelected(filtradoSports);
+            }}
+          >
+            🏋🏻‍♂️ Fitness
+          </li>
+          <li
+            onClick={() => {
+              setProductsSelected(filtradoIntelecto);
+            }}
+          >
+            💡 Intelecto
+          </li>
+          <li
+            onClick={() => {
+              setProductsSelected(filtradoSalir);
+            }}
+          >
+            🌎 Salir
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <Modal
+          infoModal={infoModal}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+        <div className="cards-container">
+          {productsSelected.map((product, i) => (
+            <Card
+              onClick={() => openModal(product)}
+              key={i}
+              image={product.image}
+              title={product.title}
+              category={product.category}
+              content={product.content}
+              mxLink={product.mxLink}
+              usLink={product.usLink}
+              mxImage={product.mxImage}
+              usImage={product.usImage}
+            />
+          ))}
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+      </div>
+    </IndexStyles>
+  );
 }
