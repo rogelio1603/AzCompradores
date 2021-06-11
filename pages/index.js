@@ -76,7 +76,7 @@ export default function Home({ data }) {
     <IndexStyles>
       <Head>
         <title>AzCompradores</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/Logo.svg" />
       </Head>
       <div className="category">
         <ul className="category-container">
