@@ -7,9 +7,20 @@ const media = {
 
 export const white = {
   font: {
-    color: "black",
+    color: "#23374D",
+  },
+  background: {
+    color: "rgba(245, 247, 250, 0.6)",
   },
   media,
 };
 
-export const black = {};
+export const black = {
+  font: {
+    color: "#F5F7FA",
+  },
+  background: {
+    color: "#323F4B",
+  },
+  media,
+};

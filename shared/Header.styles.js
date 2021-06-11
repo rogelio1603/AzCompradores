@@ -18,6 +18,11 @@ export const HeaderStyles = styled(motion.header)((props) => ({
     border: "1px solid silver",
     width: "100%",
   },
+  "& .toggle span": {
+    display: "block",
+    background: "none",
+    color: "#fff",
+  },
   "& .header-container": {
     "@media (max-width: 720px)": {
       padding: "1rem",
@@ -33,6 +38,7 @@ export const HeaderStyles = styled(motion.header)((props) => ({
   },
   "& .title-container": {
     display: "flex",
+    justifyContent: "space-between",
     alignItems: "center",
   },
   "& .list ul": {
@@ -60,6 +66,10 @@ export const HeaderStyles = styled(motion.header)((props) => ({
     "& .social-image": {
       marginTop: "1rem",
       paddingTop: "1rem",
+    },
+    "& .fab": {
+      width: "25",
+      height: "25",
     },
   },
 }));

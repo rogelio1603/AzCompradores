@@ -1,23 +1,36 @@
 import React from "react";
-import Image from 'next/image'
+import Image from "next/image";
 import Toggle from "react-toggle";
 import { HeaderStyles, HeaderVariants } from "../shared/Header.styles";
+import { useGlobalContext } from "../store/GlobalStore";
 
 function Header() {
-  const [mode, setMode] = React.useState(false);
+  const [state, dispatch] = useGlobalContext();
+
   return (
     <HeaderStyles variants={HeaderVariants} initial="hidden" animate="visible">
-      <Image src="/images/Logo.svg" width={200} height={200}  alt="Logo AZ" />
+      <Image src="/images/Logo.svg" width={200} height={200} alt="Logo AZ" />
       <div className="header-container">
         <div className="title-container">
           <h1>AZ Compradores</h1>
           <Toggle
-            defaultChecked={mode}
+            className="toggle"
+            defaultChecked={state.theme}
             icons={{
-              checked: <div>nani</div>,
-              unchecked: null,
+              checked: (
+                <span>
+                  <i class="fas fa-sun"></i>
+                </span>
+              ),
+              unchecked: (
+                <span>
+                  <i class="fas fa-moon"></i>
+                </span>
+              ),
             }}
-            onChange={() => setMode(true)}
+            onChange={() =>
+              dispatch({ type: "CHANGE_THEME", payload: !state.theme })
+            }
           />
         </div>
         <div className="list">
@@ -30,24 +43,41 @@ function Header() {
         <div className="list ">
           <ul className="social-container">
             <li>
-              <button className="button-container"><Image src="/images/Facebook-Icon.svg" width={25}
-        height={25} /></button>
+              <button className="button-container">
+                <Image src="/images/Facebook-Icon.svg" width={25} height={25} />
+              </button>
             </li>
             <li>
-              <button className="button-container"><Image src="/images/Instagram-Icon.svg" width={25}
-        height={25} /></button>
+              <button className="button-container">
+                <Image
+                  src="/images/Instagram-icon.svg"
+                  width={25}
+                  height={25}
+                />
+              </button>
             </li>
             <li>
-              <button className="button-container"><Image src="/images/Instagram-Icon.svg" width={25}
-        height={25} /></button>
+              <button className="button-container">
+                <Image
+                  src="/images/Instagram-icon.svg"
+                  width={25}
+                  height={25}
+                />
+              </button>
             </li>
             <li>
-              <button className="button-container"><Image src="/images/Instagram-Icon.svg" width={25}
-        height={25} /></button>
+              <button className="button-container">
+                <Image
+                  src="/images/Instagram-icon.svg"
+                  width={25}
+                  height={25}
+                />
+              </button>
             </li>
             <li>
-              <button className="button-container"><Image src="/images/Youtube-Icon.svg" width={25}
-        height={25} /></button>
+              <button className="button-container">
+                <Image src="/images/Youtube-Icon.svg" width={25} height={25} />
+              </button>
             </li>
           </ul>
         </div>

@@ -1,13 +1,17 @@
-import { globalStyles } from "../shared/global";
+// * CONTEXT
+import { GlobalProvider } from "../store/GlobalStore";
+import { GlobalStyles } from "../shared/global";
 // * Component
 import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      {globalStyles}
-      <Component {...pageProps} />
-    </Layout>
+    <GlobalProvider>
+      <Layout>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </Layout>
+    </GlobalProvider>
   );
 }
 
