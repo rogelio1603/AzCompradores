@@ -19,12 +19,12 @@ function Header() {
             icons={{
               checked: (
                 <span>
-                  <i class="fas fa-sun"></i>
+                  <i className="fas fa-sun"></i>
                 </span>
               ),
               unchecked: (
                 <span>
-                  <i class="fas fa-moon"></i>
+                  <i className="fas fa-moon"></i>
                 </span>
               ),
             }}
@@ -58,27 +58,14 @@ function Header() {
             </li>
             <li>
               <button className="button-container">
-                <Image
-                  src="/images/Instagram-icon.svg"
-                  width={25}
-                  height={25}
-                />
+                <Image src="/images/Tiktok-icon.svg" width={25} height={25} />
               </button>
             </li>
-            <li>
-              <button className="button-container">
-                <Image
-                  src="/images/Instagram-icon.svg"
-                  width={25}
-                  height={25}
-                />
-              </button>
-            </li>
-            <li>
+            {/* <li>
               <button className="button-container">
                 <Image src="/images/Youtube-Icon.svg" width={25} height={25} />
               </button>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

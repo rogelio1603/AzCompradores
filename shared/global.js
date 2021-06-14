@@ -85,13 +85,30 @@ export const GlobalStyles = () => {
             top: 0px;
             bottom: 0px;
             margin-top: auto;
-            margin-bottom: auto;
+            margin-bottom: 10px;
             line-height: 0;
             left: 8px;
             opacity: 0;
             -webkit-transition: opacity 0.25s ease;
             -moz-transition: opacity 0.25s ease;
             transition: opacity 0.25s ease;
+          }
+          @media (max-width: 768px) {
+            .react-toggle-track-check {
+              position: absolute;
+              width: 14px;
+              height: 10px;
+              top: 0px;
+              bottom: 0px;
+              margin-top: auto;
+              margin-bottom: auto;
+              line-height: 0;
+              left: 8px;
+              opacity: 0;
+              -webkit-transition: opacity 0.25s ease;
+              -moz-transition: opacity 0.25s ease;
+              transition: opacity 0.25s ease;
+            }
           }
 
           .react-toggle--checked .react-toggle-track-check {
@@ -102,19 +119,39 @@ export const GlobalStyles = () => {
           }
 
           .react-toggle-track-x {
+            margin: 4px;
             position: absolute;
             width: 10px;
             height: 10px;
             top: 0px;
             bottom: 0px;
             margin-top: auto;
-            margin-bottom: auto;
+            margin-bottom: 10px;
             line-height: 0;
             right: 10px;
             opacity: 1;
             -webkit-transition: opacity 0.25s ease;
             -moz-transition: opacity 0.25s ease;
             transition: opacity 0.25s ease;
+          }
+
+          @media (max-width: 768px) {
+            .react-toggle-track-x {
+              margin: 0;
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              top: 0px;
+              bottom: 0px;
+              margin-top: auto;
+              margin-bottom: auto;
+              line-height: 0;
+              right: 10px;
+              opacity: 1;
+              -webkit-transition: opacity 0.25s ease;
+              -moz-transition: opacity 0.25s ease;
+              transition: opacity 0.25s ease;
+            }
           }
 
           .react-toggle--checked .react-toggle-track-x {
