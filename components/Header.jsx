@@ -43,23 +43,35 @@ function Header() {
         <div className="list ">
           <ul className="social-container">
             <li>
-              <button className="button-container">
+              <a
+                className="button-container"
+                href="https://www.facebook.com/azcompradores"
+                target="_blank"
+              >
                 <Image src="/images/Facebook-Icon.svg" width={25} height={25} />
-              </button>
+              </a>
             </li>
             <li>
-              <button className="button-container">
+              <a
+                className="button-container"
+                href="https://www.instagram.com/azcompradores/"
+                target="_blank"
+              >
                 <Image
                   src="/images/Instagram-icon.svg"
                   width={25}
                   height={25}
                 />
-              </button>
+              </a>
             </li>
             <li>
-              <button className="button-container">
+              <a
+                className="button-container"
+                href="https://www.tiktok.com/@azcompradores"
+                target="_blank"
+              >
                 <Image src="/images/Tiktok-icon.svg" width={25} height={25} />
-              </button>
+              </a>
             </li>
             {/* <li>
               <button className="button-container">
