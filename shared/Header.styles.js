@@ -30,11 +30,15 @@ export const HeaderStyles = styled(motion.header)((props) => ({
   },
   "& .button-container": {
     fontSize: "3vw",
+    padding: "4.65px",
     margin: 0,
     background: "none",
-    border: "1px solid grey",
+    border: "1px solid #CBD2D9",
     borderRadius: 5,
     cursor: "pointer",
+    "@media (max-width: 720px)": {
+      display: "block",
+    },
   },
   "& .title-container": {
     display: "flex",

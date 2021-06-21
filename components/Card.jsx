@@ -1,7 +1,17 @@
 import React from "react";
-import {CardStyles} from "../shared/Card.styles"
+import { CardStyles } from "../shared/Card.styles";
 
-function Card({image, title, category, content, mxLink, usLink, mxImage, usImage, onClick}) {
+function Card({
+  image,
+  title,
+  category,
+  content,
+  mxLink,
+  usLink,
+  mxImage,
+  usImage,
+  onClick,
+}) {
   return (
     <CardStyles>
       <div className="principal-content">
@@ -13,8 +23,12 @@ function Card({image, title, category, content, mxLink, usLink, mxImage, usImage
             </div>
             <div className="section-two section">
               <ul>
-                <li><img src={mxImage.url} /></li>
-                <li><img src={usImage.url} /></li>
+                <li>
+                  <img src={mxImage.url} />
+                </li>
+                <li>
+                  <img src={usImage.url} />
+                </li>
               </ul>
             </div>
           </div>

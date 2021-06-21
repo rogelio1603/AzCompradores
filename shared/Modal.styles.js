@@ -13,6 +13,7 @@ export const ModalStyles = styled.div((props) => ({
   justifyContent: "center",
   alignItems: "center",
   "& .modalWrapper": {
+    overflowY: "initial !important",
     maxWidth: "450px",
     position: "relative",
     boxShadow: "0 5px 16px rgba(0, 0, 0, 0.2)",
@@ -34,6 +35,7 @@ export const ModalStyles = styled.div((props) => ({
     borderBottomRightRadius: "0",
   },
   "& .modal-content": {
+    overflowY: "auto",
     display: "flex",
     flexDirection: "column",
     justifyContent: "left",
